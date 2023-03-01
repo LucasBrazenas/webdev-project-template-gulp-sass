@@ -1,0 +1,43 @@
+@use 'variables' as v;
+
+// Media Query
+
+@mixin phone { // Smaller Phones
+    @media (max-width: v.$resolution1) {
+        @content;
+    }
+}
+
+@mixin tablet { // Tablets & larger phones
+    @media (max-width: v.$resolution2) {
+        @content;
+    }
+}
+
+@mixin desktop { // Laptops, tablets landscape & small desktop
+    @media (min-width: v.$resolution3) {
+        @content;
+    }
+}
+
+@mixin desktopXL { // DesktopXL & Monitors
+    @media (min-width: v.$resolution4) {
+        @content;
+    }
+}
+
+// Display
+
+@mixin grid($columns, $gap) {
+    display: grid;
+    grid-template-columns: repeat($columns, 1fr);
+    gap: $gap;
+}
+
+// List
+
+@mixin reset-list() {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
